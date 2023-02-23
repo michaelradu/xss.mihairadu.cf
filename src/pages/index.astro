@@ -3,79 +3,110 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+<Layout title="PwnMihai[0]">
+	<div class="container">
+        <nav class="nav">
+            <div class="nav-left">
+                <div class="logo">
+                    <a href="/">
+                        <span class="pwn">PwnMihai</span><span class="function">()</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-middle"><span data-toggle="modal" data-target="#about">XSS Game</span></div>
+        </nav>
+        <br><br>
+        <div class="container">
+            <h2>Pwnme[0]</h2>
+            <hr>
+            <u><b>Rules</b></u>
+            <ul>
+                <li>Difficulty is <b>Easy</b>.</li>
+                <li>Pop an <code>alert(1337)</code> on <code>xss.mihairadu.cf</code>.</li>
+                <li>No user interaction.</li>
+                <li>Cannot use <code>https://xss.mihairadu.cf/?html=&js=&css=</code>.</li>
+                <li>Tested on <b>Chrome</b>.</li>
+                <li>Stuck? Check out <a href="https://mihairadu.cf/pwnmihai-0/"><code>https://mihairadu.cf/pwnmihai-0/</code></a>.</li>
+            </ul>
+            <hr />
+            <div class="alert alert-warning" role="alert">
+                Inspired by PwnFunction. If you have found an unintended solution, email me <a target="_blank" class="alert-link"
+                    href="mailto:miihairadu@gmail.com">miihairadu@gmail.com</a>.
+            </div>
+        </div>
+    </div>
+    <!-- Challenge -->
+    <div id="pwnme"></div>
+
+    <script>
+		var input = (new URL(location).searchParams.get('mihai') || '').replace(/[\!\-\/\#\&\;\%]/g, '_');
+		var template = document.createElement('template');
+		template.innerHTML = input;
+		pwnme.innerHTML = "<!-- <p> MIHAI: " + template.outerHTML + " </p> -->";
+	</script>
 </Layout>
 
+<!-- Jquery(3.4.1), Popper(1.16.0), Bootstrap(4.4.1) -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+	integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	crossorigin="anonymous"></script> -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	crossorigin="anonymous"></script>
+
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+.nav {
+    background-color: #33354b;
+    border-radius: 4px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 30px 0;
+    padding: 0.5em 1em;
+    width: 100%;
+}
+
+.nav>* {
+    margin: 0;
+}
+
+.nav-left>.logo {
+    cursor: pointer;
+    font-size: 26px;
+    font-weight: 700;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.nav-left>.logo>a {
+    outline: 0;
+    text-decoration: none;
+}
+
+a {
+    color: #ededed;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.pwn {
+    color: #ff4444;
+}
+
+.function {
+    color: #0ff;
+}
+
+.nav-middle>span {
+    font-size: 24px;
+}
+
 </style>
